@@ -34,7 +34,7 @@ app.post("/adminSignin", (req, res) => {
             if (response.length > 0) {
                 const validator = bcrypt.compareSync(input.password, response[0].password)
                 if (validator) {
-                    jwt.sign({ email: input.username }, "patientApp", { expiresIn: "1d" },
+                    jwt.sign({ email: input.username }, "patientApp", { expiresIn: "7d" },
                         (error, token) => {
                             if (error) {
                                 res.json({"status":"token creation failed"})
